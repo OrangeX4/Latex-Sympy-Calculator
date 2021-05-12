@@ -1,41 +1,79 @@
 {
-	"name": "latex-sympy-calculator",
-	"displayName": "Latex Sympy Calculator",
-	"description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.46.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:latex-sympy-calculator.helloWorld"
-	],
-	"main": "./extension.js",
-	"contributes": {
-		"commands": [
+    "name": "latex-sympy-calculator",
+    "displayName": "Latex Sympy Calculator",
+    "publisher": "OrangeX4",
+    "description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
+    "icon": "icon.png",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.46.0"
+    },
+    "categories": [
+        "Data Science",
+        "Notebooks"
+    ],
+    "activationEvents": [
+        "onCommand:latex-sympy-calculator.variances",
+        "onCommand:latex-sympy-calculator.reset",
+        "onCommand:latex-sympy-calculator.equal",
+        "onCommand:latex-sympy-calculator.replace",
+        "onCommand:latex-sympy-calculator.define",
+        "onCommand:latex-sympy-calculator.python"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
 			{
-				"command": "latex-sympy-calculator.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
-	"scripts": {
-		"lint": "eslint .",
-		"pretest": "npm run lint",
-		"test": "node ./test/runTest.js"
-	},
-	"devDependencies": {
-		"@types/vscode": "^1.46.0",
-		"@types/glob": "^7.1.3",
-		"@types/mocha": "^8.0.0",
-		"@types/node": "^12.11.7",
-		"eslint": "^7.9.0",
-		"glob": "^7.1.6",
-		"mocha": "^8.1.3",
-		"typescript": "^4.0.2",
-		"vscode-test": "^1.4.0"
-	},
-	"dependencies": {}
+				"command": "latex-sympy-calculator.variances",
+				"title": "latex-sympy-calculator: Show Current Variances"
+            },
+			{
+				"command": "latex-sympy-calculator.reset",
+				"title": "latex-sympy-calculator: Reset Current Variances"
+            }
+		],
+        "keybindings": [
+            {
+                "command": "latex-sympy-calculator.equal",
+                "key": "Shift+Ctrl+Alt+E",
+                "mac": "Shift+Cmd+Alt+E",
+                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+            },
+            {
+                "command": "latex-sympy-calculator.replace",
+                "key": "Shift+Ctrl+Alt+R",
+                "mac": "Shift+Cmd+Alt+R",
+                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+            },
+            {
+                "command": "latex-sympy-calculator.define",
+                "key": "Shift+Ctrl+Alt+D",
+                "mac": "Shift+Cmd+Alt+D",
+                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+            },
+            {
+                "command": "latex-sympy-calculator.python",
+                "key": "Shift+Ctrl+Alt+P",
+                "mac": "Shift+Cmd+Alt+P",
+                "when": "editorTextFocus && editorHasSelection"
+            }
+        ]
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.46.0",
+        "@types/glob": "^7.1.3",
+        "@types/mocha": "^8.0.0",
+        "@types/node": "^12.11.7",
+        "eslint": "^7.9.0",
+        "glob": "^7.1.6",
+        "mocha": "^8.1.3",
+        "typescript": "^4.0.2",
+        "vscode-test": "^1.4.0"
+    },
+    "dependencies": {}
 }

@@ -1,65 +1,132 @@
-# latex-sympy-calculator README
+# Latex Sympy Calculator
 
-This is the README for your extension "latex-sympy-calculator". After writing up a brief description, we recommend including the following sections.
+## About
+
+`Latex Sympy Calculator` parses **LaTeX math expressions** and converts it into the equivalent **SymPy form**. Then, **calculate it** and convert to latex result. 
+
+It is designed for providing **people writing in latex or markdown** a ability to calculate something when writing math expression. It is based on `Python`, `Sympy` and `latex2sympy2` module.
+
+
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+* **Arithmetic:** Add (+), Sub (-), Dot Mul (·), Cross Mul (×), Frac (/), Power (^), Abs (|x|), Sqrt (√), etc...
+* **Alphabet:** a - z, A - Z, α - ω, Subscript (x_1), Accent Bar(ā), etc...
+* **Common Functions:** gcd, lcm, floor, ceil, max, min, log, ln, exp, sin, cos, tan, csc, sec, cot, arcsin, sinh, arsinh, etc...
+* **Calculous:** Limit ($lim_{n\to\infty}$), Derivation ($\frac{d}{dx}(x^2+x)$), Integration ($\int xdx$), etc...
+* **Linear Algebra:** Matrix, Determinant, Transpose, Inverse, Elementary Transformation, etc...
+* **Other:** Binomial...
 
-For example if there is an image subfolder under your extension project workspace:
+## Install
 
-\!\[feature X\]\(images/feature-x.png\)
+**IT IS IMPORTANT!**  
+**IT IS IMPORTANT!**  
+**IT IS IMPORTANT!**  
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Before you use the extension, please install python and two python modules: `latex2sympy` and `Flask`.
 
-## Requirements
+Install **Python** in [Python.org](https://www.python.org/), and then install **NECESSARY modules** by running:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```
+pip install latex2sympy2
+pip install Flask
+```
 
-## Extension Settings
+If you have installed it, you can run the code in terminal to test if you have installed it successfully.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```
+python
 
-For example:
+# Get into python environment
+import latex2sympy2
+import Flask
+```
 
-This extension contributes the following settings:
+## Usage
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+### Latex to Latex
 
-## Known Issues
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + E` (equal) to get the result of the selected Latex text. It will like:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+``` latex
+# Before
+\frac{d}{dx}(x^3+x^2+1)
 
-## Release Notes
+# After
+\frac{d}{dx}(x^3+x^2+1) = x \left(3 x + 2\right) 
+```
 
-Users appreciate release notes as you update your extension.
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + R` (replace) to get the result of the selected Latex text. It will like:
 
-### 1.0.0
+``` latex
+# Before
+\frac{d}{dx}(x^3+x^2+1)
 
-Initial release of ...
+# After
+x \left(3 x + 2\right) 
+```
 
-### 1.0.1
+### Variances
 
-Fixed issue #.
+You can **ASSIGN** variance a value. Use `Shift + Ctrl + Alt + D` (define) and grammar like `y = x + 1`.
 
-### 1.1.0
+``` python
+# Shift + Ctrl + D
+y = x + 1
 
-Added features X, Y, and Z.
+# Shift + Ctrl + E
+# Before
+2y
+# After
+2y = 2 x + 2
+```
 
------------------------------------------------------------------------------------------------------------
+PS: You can use grammar like `y == x + 1` to describe the relation of equality.
 
-## Working with Markdown
+If you want to see the bonding of variances, you can press `Shift + Ctrl + P`, and input `latex-sympy-calculator: Show Current variances`, then you will get data like:
 
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+``` python
+y = x + 1
+z = 2x
+```
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
+If you want to remove the bonding of variances, you can press `Shift + Ctrl + P`, and input `latex-sympy-calculator: Reset Current variances`, then you can clear the current variances.
 
-### For more information
+### Python
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+You can calculate a python expression by `Shift + Ctrl + Alt + P`.
 
-**Enjoy!**
+**You can use all sympy expression in it.**
+
+For example, you can get variances you assigned by:
+
+``` python
+# Before
+var['y']
+
+# After
+var['y'] = x + 1
+```
+
+Calculator the roots of the equation:
+
+``` python
+# Before
+solve([2 * x - y - 3, 3 * x + y - 7],[x, y])
+
+# After
+solve([2 * x - y - 3, 3 * x + y - 7],[x, y]) = {x: 2, y: 1}
+```
+
+Convert latex to sympy and convert sympy to latex:
+
+``` python
+# Latex to Sympy
+expr = latex2sympy(r'x^2 + 3x + 1')
+
+# Sympy to Latex
+latex = latex(expr)
+
+# Latex to Latex
+result = latex2latex(r'\frac{d}{dx}(x^3+x^2+1)')
+```
