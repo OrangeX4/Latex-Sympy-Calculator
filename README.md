@@ -8,6 +8,8 @@ It is designed for providing **people writing in latex or markdown** a ability t
 
 PS: If you want to install the extension, **PLEASE READ THE INSTALL DESCRIPTION!**
 
+![](https://ae01.alicdn.com/kf/Ud246889e25e84421a60a86435e693bfaJ.jpg)
+
 ## Features
 
 * **Arithmetic:** Add (+), Sub (-), Dot Mul (·), Cross Mul (×), Frac (/), Power (^), Abs (|x|), Sqrt (√), etc...
@@ -44,6 +46,8 @@ import Flask
 
 ## Usage
 
+![](./latex2sympy.gif)
+
 ### Latex to Latex
 
 You can **SELECT** some text, and press `Shift + Ctrl + Alt + E` (equal) to get the result of the selected Latex text. It will like:
@@ -70,7 +74,7 @@ x \left(3 x + 2\right)
 
 You can **ASSIGN** variance a value. Use `Shift + Ctrl + Alt + D` (define) and grammar like `y = x + 1`.
 
-``` python
+``` latex
 # Shift + Ctrl + D
 y = x + 1
 
@@ -85,7 +89,7 @@ PS: You can use grammar like `y == x + 1` to describe the relation of equality.
 
 If you want to see the bonding of variances, you can press `Shift + Ctrl + P`, and input `latex-sympy-calculator: Show Current variances`, then you will get data like:
 
-``` python
+``` latex
 y = x + 1
 z = 2x
 ```
