@@ -7,7 +7,7 @@ from sympy.abc import *
 from latex2sympy2 import latex2latex, latex2sympy, var, variances, set_variances, set_real
 app = Flask(__name__)
 
-is_real = True
+is_real = False
 
 
 @app.route('/')
