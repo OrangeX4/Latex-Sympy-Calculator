@@ -179,6 +179,12 @@ function activate(context) {
     )
 
     context.subscriptions.push(
+        vscode.commands.registerCommand('latex-sympy-calculator.toggle-complex-number', function () {
+            get('/complex', (data) => { vscode.window.showInformationMessage('Toggle Complex Number to ' + ((!data.value) ? 'Off' : 'On')) })
+        })
+    )
+
+    context.subscriptions.push(
         vscode.commands.registerCommand('latex-sympy-calculator.python', function () {
             let editor = vscode.window.activeTextEditor
             if (!editor) { return }

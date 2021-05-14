@@ -4,7 +4,7 @@
     "publisher": "OrangeX4",
     "description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
     "icon": "icon.png",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "engines": {
         "vscode": "^1.46.0"
     },
@@ -15,6 +15,7 @@
     "activationEvents": [
         "onCommand:latex-sympy-calculator.variances",
         "onCommand:latex-sympy-calculator.reset",
+        "onCommand:latex-sympy-calculator.toggle-complex-number",
         "onCommand:latex-sympy-calculator.equal",
         "onCommand:latex-sympy-calculator.replace",
         "onCommand:latex-sympy-calculator.define",
@@ -30,6 +31,10 @@
 			{
 				"command": "latex-sympy-calculator.reset",
 				"title": "latex-sympy-calculator: Reset Current Variances"
+            },
+			{
+				"command": "latex-sympy-calculator.toggle-complex-number",
+				"title": "latex-sympy-calculator: Toggle Complex Number Support For Variances"
             }
 		],
         "keybindings": [

@@ -4,8 +4,10 @@ import latex2sympy2
 import sympy
 from sympy import *
 from sympy.abc import *
-from latex2sympy2 import latex2latex, latex2sympy, var, variances, set_variances
+from latex2sympy2 import latex2latex, latex2sympy, var, variances, set_variances, set_real
 app = Flask(__name__)
+
+is_real = True
 
 
 @app.route('/')
@@ -14,7 +16,7 @@ def main():
 
 
 @app.route('/latex', methods=['POST'])
-def latex():
+def get_latex():
     try:
         return {
             'data': latex2latex(request.json['data']),
@@ -40,6 +42,17 @@ def reset():
     var = latex2sympy2.var
     return {
         'success' : True  
+    }
+
+
+@app.route('/complex', methods=['GET'])
+def complex():
+    global is_real
+    is_real = not is_real
+    set_real(True if is_real else None)
+    return {
+        'success' : True,
+        'value' : is_real
     }
 
 

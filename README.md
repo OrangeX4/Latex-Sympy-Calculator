@@ -96,6 +96,10 @@ z = 2x
 
 If you want to remove the bonding of variances, you can press `Shift + Ctrl + P`, and input `latex-sympy-calculator: Reset Current variances`, then you can clear the current variances.
 
+If you want to let your variances be complex numbers, you can press `Shift + Ctrl + P`, and input `latex-sympy-calculator: Toggle Complex Number Support For Variances`.
+
+For example, `x = 1 + 2i`, `\int \cos xe^{-ikx}dx`.
+
 ### Python
 
 You can calculate a python expression by `Shift + Ctrl + Alt + P`.
@@ -142,13 +146,13 @@ For matrix: $A=\begin{bmatrix}	5 &6 &-3 \\	-1 &0 &1 \\	1 &2 &-1 \\\end{bmatrix}$
 
 Let $B=\lambda\begin{bmatrix}1 &0 &0 \\0 &1 &0 \\0 &0 &1 \\\end{bmatrix}-\begin{bmatrix}	5 &6 &-3 \\	-1 &0 &1 \\	1 &2 &-1 \\\end{bmatrix}=\left[\begin{matrix}\lambda - 5 & -6 & 3\\1 & \lambda & -1\\-1 & -2 & \lambda + 1\end{matrix}\right]$
 
-Its determinant is $sympy.latex(var["B"].doit().det()) = \lambda^{3} - 4 \lambda^{2} + 2 \lambda + 4$
+Its determinant is $latex(var["B"].doit().det()) = \lambda^{3} - 4 \lambda^{2} + 2 \lambda + 4$
 
-Factor it: $sympy.latex(sympy.factor(var["B"].doit().det())) = \left(\lambda - 2\right) \left(\lambda^{2} - 2 \lambda - 2\right)$
+Factor it: $latex(factor(var["B"].doit().det())) = \left(\lambda - 2\right) \left(\lambda^{2} - 2 \lambda - 2\right)$
 
-Solve for eigenvalues $sympy.latex(sympy.solve(var["B"].doit().det())) = \left[ 2, \  1 - \sqrt{3}, \  1 + \sqrt{3}\right]$
+Solve for eigenvalues $latex(solve(var["B"].doit().det())) = \left[ 2, \  1 - \sqrt{3}, \  1 + \sqrt{3}\right]$
 
-Or via:$sympy.latex(var["A"].eigenvals()) = \left\{ 2 : 1, \  1 - \sqrt{3} : 1, \  1 + \sqrt{3} : 1\right\}$
+Or via:$latex(var["A"].eigenvals()) = \left\{ 2 : 1, \  1 - \sqrt{3} : 1, \  1 + \sqrt{3} : 1\right\}$
 
 Let $\lambda_1=2, \lambda_2=1-\sqrt{3}, \lambda_3=1+\sqrt{3}$
 
@@ -158,7 +162,7 @@ Assign it: $B_1=\left[\begin{matrix}-3 & -6 & 3\\1 & 2 & -1\\-1 & -2 & 3\end{mat
 
 Simplify it by elementary row transformations:
 
-$sympy.latex(var["B_1"].doit().rref()) = \left( \left[\begin{matrix}1 & 2 & 0\\0 & 0 & 1\\0 & 0 & 0\end{matrix}\right], \  \left( 0, \  2\right)\right)$
+$latex(var["B_1"].doit().rref()) = \left( \left[\begin{matrix}1 & 2 & 0\\0 & 0 & 1\\0 & 0 & 0\end{matrix}\right], \  \left( 0, \  2\right)\right)$
 
 For the eigenvalue $\lambda_1=2$, its one eigenvector is $\xi_1=\begin{pmatrix}-2\\1\\0\end{pmatrix}$
 
@@ -166,5 +170,5 @@ So for the eigenvalue $\lambda_1=2$ its all eigenvectors are $k_1\xi_1 \ (k_1\ne
 
 In a same way, all eigenvalues and eigenvector are
 
-$sympy.latex(var["A"].eigenvects()) = \left[ \left( 2, \  1, \  \left[ \left[\begin{matrix}-2\\1\\0\end{matrix}\right]\right]\right), \  \left( 1 - \sqrt{3}, \  1, \  \left[ \left[\begin{matrix}6 - 3 \sqrt{3}\\-2 + \sqrt{3}\\1\end{matrix}\right]\right]\right), \  \left( 1 + \sqrt{3}, \  1, \  \left[ \left[\begin{matrix}3 \sqrt{3} + 6\\-2 - \sqrt{3}\\1\end{matrix}\right]\right]\right)\right]$
+$latex(var["A"].eigenvects()) = \left[ \left( 2, \  1, \  \left[ \left[\begin{matrix}-2\\1\\0\end{matrix}\right]\right]\right), \  \left( 1 - \sqrt{3}, \  1, \  \left[ \left[\begin{matrix}6 - 3 \sqrt{3}\\-2 + \sqrt{3}\\1\end{matrix}\right]\right]\right), \  \left( 1 + \sqrt{3}, \  1, \  \left[ \left[\begin{matrix}3 \sqrt{3} + 6\\-2 - \sqrt{3}\\1\end{matrix}\right]\right]\right)\right]$
 ```
