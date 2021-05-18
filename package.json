@@ -4,7 +4,7 @@
     "publisher": "OrangeX4",
     "description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
     "icon": "icon.png",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "engines": {
         "vscode": "^1.46.0"
     },
@@ -25,16 +25,39 @@
     "contributes": {
         "commands": [
 			{
+                "category": "Latex-Sympy-Calculator",
 				"command": "latex-sympy-calculator.variances",
-				"title": "latex-sympy-calculator: Show Current Variances"
+				"title": "Show Current Variances"
             },
 			{
+                "category": "Latex-Sympy-Calculator",
 				"command": "latex-sympy-calculator.reset",
-				"title": "latex-sympy-calculator: Reset Current Variances"
+				"title": "Reset Current Variances"
             },
 			{
+                "category": "Latex-Sympy-Calculator",
 				"command": "latex-sympy-calculator.toggle-complex-number",
-				"title": "latex-sympy-calculator: Toggle Complex Number Support For Variances"
+				"title": "Toggle Complex Number Support For Variances"
+            },
+            {
+                "category": "Latex-Sympy-Calculator",
+                "command": "latex-sympy-calculator.equal",
+                "title": "Append result of selected expression"
+            },
+            {
+                "category": "Latex-Sympy-Calculator",
+                "command": "latex-sympy-calculator.replace",
+                "title": "Replace expression with its result"
+            },
+            {
+                "category": "Latex-Sympy-Calculator",
+                "command": "latex-sympy-calculator.define",
+                "title": "Assign variable defined in selected expression"
+            },
+            {
+                "category": "Latex-Sympy-Calculator",
+                "command": "latex-sympy-calculator.python",
+                "title": "Calculate Python expression"
             }
 		],
         "keybindings": [
