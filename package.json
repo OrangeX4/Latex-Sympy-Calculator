@@ -4,7 +4,7 @@
     "publisher": "OrangeX4",
     "description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
     "icon": "icon.png",
-    "version": "1.1.3",
+    "version": "1.3.0",
     "engines": {
         "vscode": "^1.46.0"
     },
@@ -19,25 +19,26 @@
         "onCommand:latex-sympy-calculator.equal",
         "onCommand:latex-sympy-calculator.replace",
         "onCommand:latex-sympy-calculator.define",
+        "onCommand:latex-sympy-calculator.numerical",
         "onCommand:latex-sympy-calculator.python"
     ],
     "main": "./extension.js",
     "contributes": {
         "commands": [
-			{
+            {
                 "category": "Latex-Sympy-Calculator",
-				"command": "latex-sympy-calculator.variances",
-				"title": "Show Current Variances"
+                "command": "latex-sympy-calculator.variances",
+                "title": "Show Current Variances"
             },
-			{
+            {
                 "category": "Latex-Sympy-Calculator",
-				"command": "latex-sympy-calculator.reset",
-				"title": "Reset Current Variances"
+                "command": "latex-sympy-calculator.reset",
+                "title": "Reset Current Variances"
             },
-			{
+            {
                 "category": "Latex-Sympy-Calculator",
-				"command": "latex-sympy-calculator.toggle-complex-number",
-				"title": "Toggle Complex Number Support For Variances"
+                "command": "latex-sympy-calculator.toggle-complex-number",
+                "title": "Toggle Complex Number Support For Variances"
             },
             {
                 "category": "Latex-Sympy-Calculator",
@@ -56,10 +57,15 @@
             },
             {
                 "category": "Latex-Sympy-Calculator",
+                "command": "latex-sympy-calculator.numerical",
+                "title": "Calculate the numerical expression of selection"
+            },
+            {
+                "category": "Latex-Sympy-Calculator",
                 "command": "latex-sympy-calculator.python",
                 "title": "Calculate Python expression"
             }
-		],
+        ],
         "keybindings": [
             {
                 "command": "latex-sympy-calculator.equal",
@@ -77,6 +83,12 @@
                 "command": "latex-sympy-calculator.define",
                 "key": "Shift+Ctrl+Alt+D",
                 "mac": "Shift+Cmd+Alt+D",
+                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+            },
+            {
+                "command": "latex-sympy-calculator.numerical",
+                "key": "Shift+Ctrl+Alt+N",
+                "mac": "Shift+Cmd+Alt+N",
                 "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
             },
             {

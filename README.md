@@ -70,6 +70,19 @@ You can **SELECT** some text, and press `Shift + Ctrl + Alt + R` (replace) to ge
 x \left(3 x + 2\right) 
 ```
 
+### Latex to Numerical Result
+
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + N` (numerical) to get the numerical result of the selected Latex text. It will like:
+
+``` latex
+# Before
+\sqrt{2}
+
+# After
+\sqrt{2}=1.41421356237310 
+```
+
+
 ### Variances
 
 You can **ASSIGN** variance a value. Use `Shift + Ctrl + Alt + D` (define) and grammar like `y = x + 1`.

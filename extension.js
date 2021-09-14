@@ -5,7 +5,8 @@ const vscode = require('vscode')
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
-
+const os = require('os')
+const platform = os.platform()
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -13,9 +14,24 @@ const vscode = require('vscode')
 function activate(context) {
     const { spawn } = require('child_process')
     const http = require('http')
-
-    const py = spawn('python', [context.asAbsolutePath("server.py")])
+    
+    let py
     const port = 7395
+    switch (platform) {
+        case 'darwin':
+            py = spawn('python3', [context.asAbsolutePath("server.py")])
+            break;
+        case 'linux':
+            console.log('Linux')
+            py = spawn('python3', [context.asAbsolutePath("server.py")])
+            break;
+        case 'win32':
+            py = spawn('python', [context.asAbsolutePath("server.py")])
+            break;
+        default:
+            vscode.window.showErrorMessage('Unknown operate system.')
+            return
+    }
 
 
     py.on('error', (err) => {
@@ -101,6 +117,9 @@ function activate(context) {
     function sendLatex(latex, onSuccess, onError) {
         post(latex, '/latex', onSuccess, onError)
     }
+    function sendNumerical(latex, onSuccess, onError) {
+        post(latex, '/numerical', onSuccess, onError)
+    }
 
 
     context.subscriptions.push(
@@ -112,6 +131,26 @@ function activate(context) {
             let text = doc.getText(selection)
 
             sendLatex(text, (data) => {
+                let editor = vscode.window.activeTextEditor
+                if (!editor) { return }
+                editor.edit((edit) => {
+                    edit.insert(selection.end, '=' + data)
+                })  
+            }, (err) => {
+                vscode.window.showErrorMessage(err)
+            })
+        })
+    )
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('latex-sympy-calculator.numerical', function () {
+            let editor = vscode.window.activeTextEditor
+            if (!editor) { return }
+            let doc = editor.document
+            let selection = editor.selection
+            let text = doc.getText(selection)
+
+            sendNumerical(text, (data) => {
                 let editor = vscode.window.activeTextEditor
                 if (!editor) { return }
                 editor.edit((edit) => {

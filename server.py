@@ -28,6 +28,19 @@ def get_latex():
             'error': str(e)
         }
 
+@app.route('/numerical', methods=['POST'])
+def get_numerical():
+    try:
+        return {
+            'data': str(latex2sympy(request.json['data']).evalf(subs=variances)),
+            'error': ''
+        }
+    except Exception as e:
+        return {
+            'data': '',
+            'error': str(e)
+        }
+
 @app.route('/variances', methods=['GET'])
 def get_variances():
     result = {}
