@@ -41,7 +41,7 @@ python
 
 # Get into python environment
 import latex2sympy2
-import Flask
+import flask
 ```
 
 ## Usage
