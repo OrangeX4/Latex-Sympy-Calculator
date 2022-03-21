@@ -185,3 +185,7 @@ In a same way, all eigenvalues and eigenvector are
 
 $latex(var["A"].eigenvects()) = \left[ \left( 2, \  1, \  \left[ \left[\begin{matrix}-2\\1\\0\end{matrix}\right]\right]\right), \  \left( 1 - \sqrt{3}, \  1, \  \left[ \left[\begin{matrix}6 - 3 \sqrt{3}\\-2 + \sqrt{3}\\1\end{matrix}\right]\right]\right), \  \left( 1 + \sqrt{3}, \  1, \  \left[ \left[\begin{matrix}3 \sqrt{3} + 6\\-2 - \sqrt{3}\\1\end{matrix}\right]\right]\right)\right]$
 ```
+
+## License
+
+This project is licensed under the MIT License.
