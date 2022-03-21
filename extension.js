@@ -120,6 +120,12 @@ function activate(context) {
     function sendNumerical(latex, onSuccess, onError) {
         post(latex, '/numerical', onSuccess, onError)
     }
+    function sendFactor(latex, onSuccess, onError) {
+        post(latex, '/factor', onSuccess, onError)
+    }
+    function sendExpand(latex, onSuccess, onError) {
+        post(latex, '/expand', onSuccess, onError)
+    }
 
 
     context.subscriptions.push(
@@ -151,6 +157,48 @@ function activate(context) {
             let text = doc.getText(selection)
 
             sendNumerical(text, (data) => {
+                let editor = vscode.window.activeTextEditor
+                if (!editor) { return }
+                editor.edit((edit) => {
+                  edit.replace(selection, data)
+                })  
+            }, (err) => {
+                vscode.window.showErrorMessage(err)
+            })
+        })
+    )
+
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('latex-sympy-calculator.factor', function () {
+            let editor = vscode.window.activeTextEditor
+            if (!editor) { return }
+            let doc = editor.document
+            let selection = editor.selection
+            let text = doc.getText(selection)
+
+            sendFactor(text, (data) => {
+                let editor = vscode.window.activeTextEditor
+                if (!editor) { return }
+                editor.edit((edit) => {
+                  edit.replace(selection, data)
+                })  
+            }, (err) => {
+                vscode.window.showErrorMessage(err)
+            })
+        })
+    )
+
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('latex-sympy-calculator.expand', function () {
+            let editor = vscode.window.activeTextEditor
+            if (!editor) { return }
+            let doc = editor.document
+            let selection = editor.selection
+            let text = doc.getText(selection)
+
+            sendExpand(text, (data) => {
                 let editor = vscode.window.activeTextEditor
                 if (!editor) { return }
                 editor.edit((edit) => {

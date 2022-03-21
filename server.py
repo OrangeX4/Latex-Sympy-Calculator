@@ -4,7 +4,7 @@ import latex2sympy2
 import sympy
 from sympy.abc import *
 from sympy import *
-from latex2sympy2 import latex2latex, latex2sympy, var, variances, set_variances, set_real, latex
+from latex2sympy2 import latex2latex, latex2sympy, var, variances, set_variances, set_real, latex, factor, expand, apart, expand_trig
 app = Flask(__name__)
 
 is_real = False
@@ -40,6 +40,38 @@ def get_numerical():
             'data': '',
             'error': str(e)
         }
+
+@app.route('/factor', methods=['POST'])
+def get_factor():
+    try:
+        return {
+            'data': latex(factor(latex2sympy(request.json['data']).subs(variances))),
+            'error': ''
+        }
+    except Exception as e:
+        return {
+            'data': '',
+            'error': str(e)
+        }
+
+@app.route('/expand', methods=['POST'])
+def get_expand():
+    try:
+        return {
+            'data': latex(expand(apart(expand_trig(latex2sympy(request.json['data']).subs(variances))))),
+            'error': ''
+        }
+    except Exception as _:
+        try:
+          return {
+              'data': latex(expand(expand_trig(latex2sympy(request.json['data']).subs(variances)))),
+              'error': ''
+          }
+        except Exception as e:
+          return {
+              'data': '',
+              'error': str(e)
+          }
 
 @app.route('/variances', methods=['GET'])
 def get_variances():

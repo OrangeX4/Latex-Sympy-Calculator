@@ -57,7 +57,7 @@ You can **SELECT** some text, and press `Shift + Ctrl + Alt + E` (equal) to get 
 \frac{d}{dx}(x^3+x^2+1)
 
 # After
-\frac{d}{dx}(x^3+x^2+1) = x \left(3 x + 2\right) 
+\frac{d}{dx}(x^3+x^2+1) = x (3 x + 2) 
 ```
 
 You can **SELECT** some text, and press `Shift + Ctrl + Alt + R` (replace) to get the result of the selected Latex text. It will like:
@@ -67,7 +67,29 @@ You can **SELECT** some text, and press `Shift + Ctrl + Alt + R` (replace) to ge
 \frac{d}{dx}(x^3+x^2+1)
 
 # After
-x \left(3 x + 2\right) 
+x (3 x + 2) 
+```
+
+### Factor and Expand
+
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + F` (factor) to get the factor of the selected Latex text. It will like:
+
+``` latex
+# Before
+x^{2} + 2 x y + y^{2}
+
+# After
+(x + y)^{2}
+```
+
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + X` (expand) to get the expand of the selected Latex text. It will like:
+
+``` latex
+# Before
+(x + y)^{2}
+
+# After
+x^{2} + 2 x y + y^{2}
 ```
 
 ### Latex to Numerical Result
@@ -79,7 +101,7 @@ You can **SELECT** some text, and press `Shift + Ctrl + Alt + N` (numerical) to 
 \sqrt{2}
 
 # After
-\sqrt{2}=1.41421356237310 
+\sqrt{2} = 1.41421356237310
 ```
 
 

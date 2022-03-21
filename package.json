@@ -4,7 +4,7 @@
     "publisher": "OrangeX4",
     "description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
     "icon": "icon.png",
-    "version": "1.4.0",
+    "version": "1.4.2",
     "engines": {
         "vscode": "^1.46.0"
     },
@@ -19,6 +19,8 @@
         "onCommand:latex-sympy-calculator.equal",
         "onCommand:latex-sympy-calculator.replace",
         "onCommand:latex-sympy-calculator.define",
+        "onCommand:latex-sympy-calculator.factor",
+        "onCommand:latex-sympy-calculator.expand",
         "onCommand:latex-sympy-calculator.numerical",
         "onCommand:latex-sympy-calculator.python"
     ],
@@ -52,6 +54,16 @@
             },
             {
                 "category": "Latex-Sympy-Calculator",
+                "command": "latex-sympy-calculator.factor",
+                "title": "Factor expression"
+            },
+            {
+                "category": "Latex-Sympy-Calculator",
+                "command": "latex-sympy-calculator.expand",
+                "title": "Expand expression"
+            },
+            {
+                "category": "Latex-Sympy-Calculator",
                 "command": "latex-sympy-calculator.define",
                 "title": "Assign variable defined in selected expression"
             },
@@ -77,6 +89,18 @@
                 "command": "latex-sympy-calculator.replace",
                 "key": "Shift+Ctrl+Alt+R",
                 "mac": "Shift+Cmd+Alt+R",
+                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+            },
+            {
+                "command": "latex-sympy-calculator.factor",
+                "key": "Shift+Ctrl+Alt+F",
+                "mac": "Shift+Cmd+Alt+F",
+                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+            },
+            {
+                "command": "latex-sympy-calculator.expand",
+                "key": "Shift+Ctrl+Alt+X",
+                "mac": "Shift+Cmd+Alt+X",
                 "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
             },
             {
