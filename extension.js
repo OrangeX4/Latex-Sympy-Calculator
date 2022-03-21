@@ -134,7 +134,7 @@ function activate(context) {
                 let editor = vscode.window.activeTextEditor
                 if (!editor) { return }
                 editor.edit((edit) => {
-                    edit.insert(selection.end, '=' + data)
+                    edit.insert(selection.end, ' = ' + data)
                 })  
             }, (err) => {
                 vscode.window.showErrorMessage(err)
@@ -154,7 +154,7 @@ function activate(context) {
                 let editor = vscode.window.activeTextEditor
                 if (!editor) { return }
                 editor.edit((edit) => {
-                    edit.insert(selection.end, '=' + data)
+                  edit.replace(selection, data)
                 })  
             }, (err) => {
                 vscode.window.showErrorMessage(err)

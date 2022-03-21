@@ -32,7 +32,7 @@ def get_latex():
 def get_numerical():
     try:
         return {
-            'data': str(latex2sympy(request.json['data']).evalf(subs=variances)),
+            'data': latex(latex2sympy(request.json['data']).evalf(subs=variances)),
             'error': ''
         }
     except Exception as e:
