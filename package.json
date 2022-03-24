@@ -4,7 +4,7 @@
     "publisher": "OrangeX4",
     "description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
     "icon": "icon.png",
-    "version": "1.4.2",
+    "version": "1.4.3",
     "engines": {
         "vscode": "^1.46.0"
     },
@@ -26,6 +26,28 @@
     ],
     "main": "./extension.js",
     "contributes": {
+        "configuration": [
+            {
+                "title": "Latex-Sympy-Calculator",
+                "properties": {
+                    "latex-sympy-calculator.windows": {
+                        "type": "string",
+                        "default": "python",
+                        "description": "Path of python for Windows."
+                    },
+                    "latex-sympy-calculator.linux": {
+                        "type": "string",
+                        "default": "python3",
+                        "description": "Path of python for Linux."
+                    },
+                    "latex-sympy-calculator.mac": {
+                        "type": "string",
+                        "default": "python3",
+                        "description": "Path of python for Mac OS."
+                    }
+                }
+            }
+        ],
         "commands": [
             {
                 "category": "Latex-Sympy-Calculator",

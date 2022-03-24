@@ -19,14 +19,13 @@ function activate(context) {
     const port = 7395
     switch (platform) {
         case 'darwin':
-            py = spawn('python3', [context.asAbsolutePath("server.py")])
+            py = spawn(vscode.workspace.getConfiguration('latex-sympy-calculator').get('mac'), [context.asAbsolutePath("server.py")])
             break;
         case 'linux':
-            console.log('Linux')
-            py = spawn('python3', [context.asAbsolutePath("server.py")])
+            py = spawn(vscode.workspace.getConfiguration('latex-sympy-calculator').get('linux'), [context.asAbsolutePath("server.py")])
             break;
         case 'win32':
-            py = spawn('python', [context.asAbsolutePath("server.py")])
+            py = spawn(vscode.workspace.getConfiguration('latex-sympy-calculator').get('windows'), [context.asAbsolutePath("server.py")])
             break;
         default:
             vscode.window.showErrorMessage('Unknown operate system.')
