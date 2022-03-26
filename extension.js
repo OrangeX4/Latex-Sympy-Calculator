@@ -7,6 +7,7 @@ const vscode = require('vscode')
 
 const os = require('os')
 const platform = os.platform()
+let py
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -15,7 +16,6 @@ function activate(context) {
     const { spawn } = require('child_process')
     const http = require('http')
     
-    let py
     const port = 7395
     switch (platform) {
         case 'darwin':
@@ -32,7 +32,6 @@ function activate(context) {
             return
     }
 
-
     py.on('error', (err) => {
         console.log(err)
         vscode.window.showErrorMessage('Running python failed... Please read the guide and make sure you have install "python", "latex2sympy2" and "Flask"')
@@ -41,7 +40,7 @@ function activate(context) {
     py.on('exit', (code) => {
         console.log(`Exit Code: ${code}`)
         vscode.window.showErrorMessage('Running python failed... Please make sure you have "latex2sympy2 >= 1.6.16" and "Flask"')
-        vscode.window.showErrorMessage('You can update it by "pip uninstall latex2sympy2" and "pip install latex2sympy2"')
+        vscode.window.showErrorMessage('You can update it by "pip install --upgrade latex2sympy2" and reboot your computer')
     })
 
     /**
@@ -295,7 +294,9 @@ function activate(context) {
 exports.activate = activate
 
 // this method is called when your extension is deactivated
-function deactivate() { }
+function deactivate() {
+  py.kill()
+}
 
 module.exports = {
     activate,

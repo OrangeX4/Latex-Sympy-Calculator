@@ -4,7 +4,7 @@ import latex2sympy2
 import sympy
 from sympy.abc import *
 from sympy import *
-from latex2sympy2 import latex2latex, latex2sympy, var, variances, set_variances, set_real, latex, factor, expand, apart, expand_trig
+from latex2sympy2 import latex2latex, latex2sympy, var, variances, set_variances, set_real, latex
 app = Flask(__name__)
 
 is_real = False

@@ -44,13 +44,15 @@ import latex2sympy2
 import flask
 ```
 
+If you want to use this extension in `Remote - SSH` or `Remote - WSL`, please **uninstall the original extension** and reinstall it in the remote server.
+
 ## Usage
 
 ![](./latex2sympy.gif)
 
 ### Latex to Latex
 
-You can **SELECT** some text, and press `Shift + Ctrl + Alt + E` (equal) to get the result of the selected Latex text. It will like:
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + E` (equal) to get the result of the selected Latex text. It will be like:
 
 ``` latex
 # Before
@@ -60,7 +62,7 @@ You can **SELECT** some text, and press `Shift + Ctrl + Alt + E` (equal) to get 
 \frac{d}{dx}(x^3+x^2+1) = x (3 x + 2) 
 ```
 
-You can **SELECT** some text, and press `Shift + Ctrl + Alt + R` (replace) to get the result of the selected Latex text. It will like:
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + R` (replace) to get the result of the selected Latex text. It will be like:
 
 ``` latex
 # Before
@@ -72,7 +74,7 @@ x (3 x + 2)
 
 ### Factor and Expand
 
-You can **SELECT** some text, and press `Shift + Ctrl + Alt + F` (factor) to get the factor of the selected Latex text. It will like:
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + F` (factor) to get the factor of the selected Latex text. It will be like:
 
 ``` latex
 # Before
@@ -82,7 +84,9 @@ x^{2} + 2 x y + y^{2}
 (x + y)^{2}
 ```
 
-You can **SELECT** some text, and press `Shift + Ctrl + Alt + X` (expand) to get the expand of the selected Latex text. It will like:
+If you are using **windows**, the shortcut `Shift + Ctrl + Alt + F` may be invalid, you can set another shortcut for it.
+
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + X` (expand) to get the expand of the selected Latex text. It will be like:
 
 ``` latex
 # Before
@@ -94,14 +98,14 @@ x^{2} + 2 x y + y^{2}
 
 ### Latex to Numerical Result
 
-You can **SELECT** some text, and press `Shift + Ctrl + Alt + N` (numerical) to get the numerical result of the selected Latex text. It will like:
+You can **SELECT** some text, and press `Shift + Ctrl + Alt + N` (numerical) to get the numerical result of the selected Latex text. It will be like:
 
 ``` latex
 # Before
 \sqrt{2}
 
 # After
-\sqrt{2} = 1.41421356237310
+1.41421356237310
 ```
 
 
