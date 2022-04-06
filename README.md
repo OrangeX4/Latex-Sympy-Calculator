@@ -139,6 +139,28 @@ If you want to let your variances be complex numbers, you can press `Shift + Ctr
 
 For example, `x = 1 + 2i`, `\int \cos xe^{-ikx}dx`.
 
+
+### Matrix Symbol
+
+You can **DEFINE** variance a matrix symbol. Use `Shift + Ctrl + Alt + D` (define) and grammar like `X \in \mathbb{R}^{n \times m}`.
+
+``` latex
+# Shift + Ctrl + D
+X \in \mathbb{R}^{n \times m}
+
+# Shift + Ctrl + E
+# Before
+X X^{T} X
+# After
+X X^{T} X
+
+# Shift + Ctrl + E
+# Before
+X^{-1} X
+# After
+I
+```
+
 ### Python
 
 You can calculate a python expression by `Shift + Ctrl + Alt + P`.

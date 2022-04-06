@@ -39,7 +39,7 @@ function activate(context) {
     
     py.on('exit', (code) => {
         console.log(`Exit Code: ${code}`)
-        vscode.window.showErrorMessage('Running python failed... Please make sure you have "latex2sympy2 >= 1.6.16" and "Flask"')
+        vscode.window.showErrorMessage('Running python failed... Please make sure you have "latex2sympy2 >= 1.7.4" and "Flask"')
         vscode.window.showErrorMessage('You can update it by "pip install --upgrade latex2sympy2" and reboot your computer')
     })
 
