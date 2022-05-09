@@ -8,7 +8,7 @@ It is designed for providing **people writing in latex or markdown** a ability t
 
 PS: If you want to install the extension, **PLEASE READ THE INSTALL DESCRIPTION!**
 
-![](https://ae01.alicdn.com/kf/Ud246889e25e84421a60a86435e693bfaJ.jpg)
+![](https://picgo-1258602555.cos.ap-nanjing.myqcloud.com/icon.png)
 
 ## Features
 
