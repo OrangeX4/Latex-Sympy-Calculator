@@ -8,7 +8,7 @@ It is designed for providing **people writing in latex or markdown** a ability t
 
 PS: If you want to install the extension, **PLEASE READ THE INSTALL DESCRIPTION!**
 
-![](https://picgo-1258602555.cos.ap-nanjing.myqcloud.com/icon.png)
+![](https://picgo-1258602555.cos.ap-nanjing.myqcloud.com/latex2sympy.gif)
 
 ## Features
 
