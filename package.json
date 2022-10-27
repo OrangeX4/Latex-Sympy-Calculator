@@ -4,7 +4,7 @@
     "publisher": "OrangeX4",
     "description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
     "icon": "icon.png",
-    "version": "1.4.9",
+    "version": "1.5.0",
     "engines": {
         "vscode": "^1.46.0"
     },
@@ -105,37 +105,37 @@
                 "command": "latex-sympy-calculator.equal",
                 "key": "Shift+Ctrl+Alt+E",
                 "mac": "Shift+Cmd+Alt+E",
-                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+                "when": "editorTextFocus && editorHasSelection"
             },
             {
                 "command": "latex-sympy-calculator.replace",
                 "key": "Shift+Ctrl+Alt+R",
                 "mac": "Shift+Cmd+Alt+R",
-                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+                "when": "editorTextFocus && editorHasSelection"
             },
             {
                 "command": "latex-sympy-calculator.factor",
                 "key": "Shift+Ctrl+Alt+F",
                 "mac": "Shift+Cmd+Alt+F",
-                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+                "when": "editorTextFocus && editorHasSelection"
             },
             {
                 "command": "latex-sympy-calculator.expand",
                 "key": "Shift+Ctrl+Alt+X",
                 "mac": "Shift+Cmd+Alt+X",
-                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+                "when": "editorTextFocus && editorHasSelection"
             },
             {
                 "command": "latex-sympy-calculator.define",
                 "key": "Shift+Ctrl+Alt+D",
                 "mac": "Shift+Cmd+Alt+D",
-                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+                "when": "editorTextFocus && editorHasSelection"
             },
             {
                 "command": "latex-sympy-calculator.numerical",
                 "key": "Shift+Ctrl+Alt+N",
                 "mac": "Shift+Cmd+Alt+N",
-                "when": "resourceLangId == markdown && editorTextFocus && editorHasSelection || resourceLangId == latex && editorTextFocus && editorHasSelection"
+                "when": "editorTextFocus && editorHasSelection"
             },
             {
                 "command": "latex-sympy-calculator.python",
