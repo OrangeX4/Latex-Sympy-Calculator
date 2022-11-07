@@ -4,7 +4,7 @@
     "publisher": "OrangeX4",
     "description": "Convert Latex to Sympy and calculate it in Latex or Markdown.",
     "icon": "icon.png",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "engines": {
         "vscode": "^1.46.0"
     },

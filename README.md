@@ -108,6 +108,25 @@ You can **SELECT** some text, and press `Shift + Ctrl + Alt + N` (numerical) to 
 1.41421356237310
 ```
 
+### Solve Equation
+
+``` latex
+# Before
+x + y = 1
+
+# After
+[ y = 1 - x, \  x = 1 - y]
+```
+
+### Eval At
+
+``` latex
+# Before
+(x+2)|_{x=y+1}
+
+# After
+y + 3
+```
 
 ### Variances
 
