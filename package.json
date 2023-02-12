@@ -17,6 +17,7 @@
         "onCommand:latex-sympy-calculator.reset",
         "onCommand:latex-sympy-calculator.toggle-complex-number",
         "onCommand:latex-sympy-calculator.equal",
+        "onCommand:latex-sympy-calculator.matrix-raw-echelon-form",
         "onCommand:latex-sympy-calculator.replace",
         "onCommand:latex-sympy-calculator.define",
         "onCommand:latex-sympy-calculator.factor",
@@ -71,6 +72,11 @@
             },
             {
                 "category": "Latex-Sympy-Calculator",
+                "command": "latex-sympy-calculator.matrix-raw-echelon-form",
+                "title": "Transform matrix to raw echelon form"
+            },
+            {
+                "category": "Latex-Sympy-Calculator",
                 "command": "latex-sympy-calculator.replace",
                 "title": "Replace expression with its result"
             },
@@ -105,6 +111,12 @@
                 "command": "latex-sympy-calculator.equal",
                 "key": "Shift+Ctrl+Alt+E",
                 "mac": "Shift+Cmd+Alt+E",
+                "when": "editorTextFocus && editorHasSelection"
+            },
+            {
+                "command": "latex-sympy-calculator.matrix-raw-echelon-form",
+                "key": "Shift+Ctrl+Alt+T",
+                "mac": "Shift+Cmd+Alt+T",
                 "when": "editorTextFocus && editorHasSelection"
             },
             {

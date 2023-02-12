@@ -116,6 +116,9 @@ function activate(context) {
     function sendLatex(latex, onSuccess, onError) {
         post(latex, '/latex', onSuccess, onError)
     }
+    function sendMatrixRawEchelonForm(latex, onSuccess, onError) {
+        post(latex, '/matrix-raw-echelon-form', onSuccess, onError)
+    }
     function sendNumerical(latex, onSuccess, onError) {
         post(latex, '/numerical', onSuccess, onError)
     }
@@ -140,6 +143,26 @@ function activate(context) {
                 if (!editor) { return }
                 editor.edit((edit) => {
                     edit.insert(selection.end, ' = ' + data)
+                })  
+            }, (err) => {
+                vscode.window.showErrorMessage(err)
+            })
+        })
+    )
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand('latex-sympy-calculator.matrix-raw-echelon-form', function () {
+            let editor = vscode.window.activeTextEditor
+            if (!editor) { return }
+            let doc = editor.document
+            let selection = editor.selection
+            let text = doc.getText(selection)
+
+            sendMatrixRawEchelonForm(text, (data) => {
+                let editor = vscode.window.activeTextEditor
+                if (!editor) { return }
+                editor.edit((edit) => {
+                    edit.insert(selection.end, ' \\to ' + data)
                 })  
             }, (err) => {
                 vscode.window.showErrorMessage(err)
