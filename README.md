@@ -147,7 +147,7 @@ You can **SELECT** matrix, then press `Shift + Ctrl + Alt + T` to transform it t
     7 & 8 & 9
 \end{bmatrix} \to \begin{bmatrix}1 & 0 & -1\\0 & 1 & 2\\0 & 0 & 0\end{bmatrix}
 ```
-![matrix-transformation-example-picture](./matrix-transformation-example.png){"width"="250"}
+<img src="./matrix-transformation-example.png" width="200">
 
 ### Variances
 
