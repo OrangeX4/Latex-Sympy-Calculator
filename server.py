@@ -31,7 +31,6 @@ def get_latex():
 @app.route('/matrix-raw-echelon-form', methods=['POST'])
 def get_matrix_raw_echelon_form():
     try:
-        latex(latex2sympy(request.json['data']).subs(variances).rref()[0])
         return {
             'data': latex(latex2sympy(request.json['data']).subs(variances).rref()[0]),
             'error': ''
