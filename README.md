@@ -17,7 +17,7 @@ PS: If you want to install the extension, **PLEASE READ THE INSTALL DESCRIPTION!
 * **Common Functions:** gcd, lcm, floor, ceil, max, min, log, ln, exp, sin, cos, tan, csc, sec, cot, arcsin, sinh, arsinh, etc...
 * **Funcion Symbol:** f(x), f(x-1,), g(x,y), etc...
 * **Calculous:** Limit ($lim_{n\to\infty}$), Derivation ($\frac{d}{dx}(x^2+x)$), Integration ($\int xdx$), etc...
-* **Linear Algebra:** Matrix, Determinant, Transpose, Inverse, Elementary Transformation, etc...
+* **Linear Algebra:** Matrix to raw echelon form, Determinant, Transpose, Inverse, Elementary Transformation, etc...
 * **Other:** Binomial...
 
 ## Install
@@ -128,6 +128,26 @@ x + y = 1
 # After
 y + 3
 ```
+
+### Matrix to raw echelon form
+
+You can **SELECT** matrix, then press `Shift + Ctrl + Alt + T` to transform it to raw echelon form in one action
+``` latex
+# Before
+\begin{bmatrix}
+    1 & 2 & 3\\
+    4 & 5 & 6\\
+    7 & 8 & 9
+\end{bmatrix}
+
+# After 
+\begin{bmatrix}
+    1 & 2 & 3\\
+    4 & 5 & 6\\
+    7 & 8 & 9
+\end{bmatrix} \to \begin{bmatrix}1 & 0 & -1\\0 & 1 & 2\\0 & 0 & 0\end{bmatrix}
+```
+<img src="./matrix-transformation-example.png" width="200">
 
 ### Variances
 

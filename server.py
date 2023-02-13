@@ -28,6 +28,19 @@ def get_latex():
             'error': str(e)
         }
 
+@app.route('/matrix-raw-echelon-form', methods=['POST'])
+def get_matrix_raw_echelon_form():
+    try:
+        return {
+            'data': latex(latex2sympy(request.json['data']).subs(variances).rref()[0]),
+            'error': ''
+        }
+    except Exception as e:
+        return {
+            'data': '',
+            'error': str(e)
+        }
+
 @app.route('/numerical', methods=['POST'])
 def get_numerical():
     try:
