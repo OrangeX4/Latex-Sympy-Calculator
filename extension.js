@@ -22,7 +22,7 @@ function activate(context) {
 
     switch (platform) {
         case 'darwin':
-            python_path = vscode.workspace.getConfiguration('latex-sympy-calculator').get('macos')
+            python_path = vscode.workspace.getConfiguration('latex-sympy-calculator').get('mac')
             break;
         case 'linux':
             python_path = vscode.workspace.getConfiguration('latex-sympy-calculator').get('linux')
