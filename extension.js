@@ -13,24 +13,46 @@ let py
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-    const { spawn } = require('child_process')
+    const { exec, spawn } = require('child_process')
     const http = require('http')
     
     const port = 7395
+
+    let python_path = ''
+
     switch (platform) {
         case 'darwin':
-            py = spawn(vscode.workspace.getConfiguration('latex-sympy-calculator').get('mac'), [context.asAbsolutePath("server.py")])
+            python_path = vscode.workspace.getConfiguration('latex-sympy-calculator').get('macos')
             break;
         case 'linux':
-            py = spawn(vscode.workspace.getConfiguration('latex-sympy-calculator').get('linux'), [context.asAbsolutePath("server.py")])
+            python_path = vscode.workspace.getConfiguration('latex-sympy-calculator').get('linux')
             break;
         case 'win32':
-            py = spawn(vscode.workspace.getConfiguration('latex-sympy-calculator').get('windows'), [context.asAbsolutePath("server.py")])
+            python_path = vscode.workspace.getConfiguration('latex-sympy-calculator').get('windows')
             break;
         default:
             vscode.window.showErrorMessage('Unknown operate system.')
             return
     }
+
+    // run auto update
+    exec(python_path + ' -m pip install --upgrade latex2sympy2', (err, stdout, stderr) => {
+        
+        if (err) {
+            console.log(err)
+        }
+        
+        if (stderr) {
+            console.log(stderr)
+        }
+        
+        if (stdout) {
+            console.log(stdout)
+        }
+    })
+    
+    // run server
+    py = spawn(python_path, [context.asAbsolutePath("server.py")])
 
     py.on('error', (err) => {
         console.log(err)
